@@ -1,9 +1,9 @@
-import { Courses } from './entities/courses.entities';
+import { Course } from './entities/courses.entity';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CoursesService {
-  private courses: Courses[] = [
+  private courses: Course[] = [
     {
       id: 1,
       name: 'Fundamentos do framework',
@@ -26,7 +26,7 @@ export class CoursesService {
 
   update(id: string, updateCourseDto: any) {
     const indexCourse = this.courses.findIndex(
-      (course: Courses) => course.id == Number(id),
+      (course: Course) => course.id == Number(id),
     );
     this.courses[indexCourse] = updateCourseDto;
   }

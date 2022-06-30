@@ -25,20 +25,18 @@ export class CoursesService {
   }
 
   update(id: string, updateCourseDto: any) {
-    let indexCourse = this.courses.findIndex((courses) => {
-      courses.id == Number(id);
-
-      this.courses[indexCourse] = updateCourseDto;
-    });
+    const indexCourse = this.courses.findIndex(
+      (course: Courses) => course.id == Number(id),
+    );
+    this.courses[indexCourse] = updateCourseDto;
   }
 
   remove(id: string) {
-    let indexCourse = this.courses.findIndex((courses) => {
-      courses.id == Number(id);
-
-      if (indexCourse > 0) {
-        this.courses.splice(indexCourse, 1);
-      }
-    });
+    const indexCourse = this.courses.findIndex(
+      (course) => course.id == Number(id),
+    );
+    if (indexCourse > 0) {
+      this.courses.splice(indexCourse, 1);
+    }
   }
 }

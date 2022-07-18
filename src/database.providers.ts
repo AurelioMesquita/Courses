@@ -1,4 +1,5 @@
 import { DataSource } from 'typeorm';
+import { CourseRefactory1658150556357 } from './migrations/CourseRefactory';
 
 export const databaseProviders = [
   {
@@ -11,9 +12,7 @@ export const databaseProviders = [
         username: 'postgres',
         password: 'docker',
         database: 'postgres',
-        entities:[
-            __dirname + '/../**/*.entity.js'
-        ],
+        entities: [__dirname + '/../**/*.entity.js'],
         synchronize: true,
       });
 
@@ -21,3 +20,15 @@ export const databaseProviders = [
     },
   },
 ];
+
+export const dataSource = new DataSource({
+  type: 'postgres',
+  host: 'localhost',
+  port: 5432,
+  username: 'postgres',
+  password: 'docker',
+  database: 'postgres',
+  entities: [__dirname + '/../**/*.entity.js'],
+  synchronize: true,
+  migrations: [CourseRefactory1658150556357],
+});

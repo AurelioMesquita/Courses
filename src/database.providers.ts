@@ -1,5 +1,6 @@
 import { DataSource } from 'typeorm';
-import { CourseRefactory1658150556357 } from './migrations/CourseRefactory';
+import { CoursesRefactoringTest1658252821210 } from './migrations/CoursesRefactoringTest';
+import { CreateTagsTable1658254209820 } from './migrations/CreateTagsTable';
 
 export const databaseProviders = [
   {
@@ -30,5 +31,8 @@ export const dataSource = new DataSource({
   database: 'cursonestjs',
   entities: [__dirname + '/../**/*.entity.js'],
   synchronize: false,
-  migrations: [CourseRefactory1658150556357],
+  migrations: [
+    CoursesRefactoringTest1658252821210,
+    CreateTagsTable1658254209820,
+  ],
 });

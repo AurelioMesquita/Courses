@@ -1,5 +1,8 @@
 import { DataSource } from 'typeorm';
+import { AddCoursesIdToCoursesTagsTable1658340576790 } from './migrations/AddCoursesIdToCoursesTagsTable';
+import { AddTagsIdToCoursesTagsTable1658341844465 } from './migrations/AddTagsIdToCoursesTagsTable';
 import { CoursesRefactoringTest1658252821210 } from './migrations/CoursesRefactoringTest';
+import { CreateCoursesTagsTable1658340194832 } from './migrations/CreateCoursesTagsTable';
 import { CreateTagsTable1658254209820 } from './migrations/CreateTagsTable';
 
 export const databaseProviders = [
@@ -34,5 +37,8 @@ export const dataSource = new DataSource({
   migrations: [
     CoursesRefactoringTest1658252821210,
     CreateTagsTable1658254209820,
+    AddCoursesIdToCoursesTagsTable1658340576790,
+    AddTagsIdToCoursesTagsTable1658341844465,
+    CreateCoursesTagsTable1658340194832,
   ],
 });

@@ -16,7 +16,7 @@ export const databaseProviders = [
         username: 'postgres',
         password: 'docker',
         database: 'cursonestjs',
-        entities: [__dirname + '/../**/*.entity.js'],
+        entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: false,
       });
 
@@ -32,7 +32,7 @@ export const dataSource = new DataSource({
   username: 'postgres',
   password: 'docker',
   database: 'cursonestjs',
-  entities: [__dirname + '/../**/*.entity.js'],
+  entities: [__dirname + '/**/*.entity{.ts,.js}'],
   synchronize: false,
   migrations: [
     CoursesRefactoringTest1658252821210,

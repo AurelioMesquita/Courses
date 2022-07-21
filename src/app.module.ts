@@ -15,7 +15,7 @@ import { DatabaseModule } from './database/database.module';
       username: 'postgres',
       password: 'docker',
       database: 'cursonestjs',
-      entities: [__dirname + '/**/*.entity.{.ts,.js}'],
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       autoLoadEntities: false,
       synchronize: false,
     }),

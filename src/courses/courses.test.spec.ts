@@ -1,3 +1,4 @@
+import { NotFoundException } from '@nestjs/common';
 import { Tag } from './entities/tag.entity';
 import { Course } from './entities/courses.entity';
 import { Test, TestingModule } from '@nestjs/testing';
@@ -46,7 +47,17 @@ describe('CousesService', () => {
         const course = await service.findOne(courseId);
         expect(course).toEqual(expectedCourse);
       });
-      it('deve retornar noFoundException', () => {});
+      it('deve retornar NotFoundException', async () => {
+        const courseId = '1';
+
+        courseRepository.findOne.mockReturnValue(undefined);
+        try {
+          await service.findOne(courseId);
+        } catch (error) {
+          expect(error).toBeInstanceOf(NotFoundException);
+          expect(error.message).toEqual(`Course id ${courseId} not found`);
+        }
+      });
     });
   });
 });
